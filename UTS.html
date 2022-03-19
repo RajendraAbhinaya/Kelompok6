@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UMN Life</title>
+		
+		<link rel="icon" type="image/x-icon" href="umn.png">
+        <link href="Comic sans" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div class="d-flex justify-content-center">
+        <img id="tr" src="trophy.png">
+      </div>
+
+      <div id="page1" class="container-fluid">
+        <div class="d-flex justify-content-center">
+          <p class="sp" id="p12" style="font-size: 32px; color:blanchedalmond"><b><u>Mid Term</u></b></p>
+        </div>
+        <hr>
+        <div class="mx-auto" style="width: 300px;"><div class="card" style="background-color:cornsilk">
+            <div id="avatars" class="carousel carousel-dark slide" data-ride="carousel" data-bs-pause="false">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="avatars/avatar1.gif" class="d-block w-100">
+                    <p class="text-center">Normal</p>
+                    <p class="text-center">Just a normal guy.</p>
+                    <br/>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="avatars/avatar2.gif" class="d-block w-100">
+                    <p class="text-center">Gendut</p>
+                    <p class="text-center">Eats faster. Gets hungry faster. Receives study bonus when well fed.</p>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="avatars/avatar3.gif" class="d-block w-100" >
+                    <p class="text-center">Nerd</p>
+                    <p class="text-center">Studies faster but gets tired more easily.</p>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="avatars/avatar4.gif" class="d-block w-100" >
+                    <p class="text-center">Useless</p>
+                    <p class="text-center">Studies slowly but fills other status bars more quickly></p>
+                  </div>
+                </div>
+                <button onClick="minusAvatarNum()" class="carousel-control-prev" type="button" data-bs-target="#avatars" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button onClick="addAvatarNum()" class="carousel-control-next" type="button" data-bs-target="#avatars" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+        </div>
+		<div class="d-flex justify-content-center">
+            <p>Enter your name here</p>
+        </div>
+		  
+        <div class="d-flex justify-content-center">
+            <input type="text" id="name">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button id="play" class="play" style="vertical-align:middle"><span style="top: -10px">Play!</span></button>
+		</div>
+		</div>
+
+
+
+      <div id="page2" class="container-fluid">
+        <div class="d-flex justify-content-center">
+            <div class="clock" href="style.css" id = "clock">
+              <span class="clock-time" href = "style.css" id="clock-time"></span>
+				<span class="ampm" href="style.css"id="ampm"></span>
+          </div>
+        </div>
+        
+        <p id="player" class="d-flex justify-content-center"></p>
+        <p id="semester" class="d-flex justify-content-center">Semester 1</p>
+
+        <div>
+          <p id="statusMakan"></p>
+          <p id="statusMain"></p>
+          <p id="statusTidur"></p>
+          <p id="statusBelajar"></p>
+          <p id="test"></p>
+        </div>
+        <hr/>
+
+        <div class="d-flex justify-content-center">
+		<div class="card" style="background-color:cornsilk">
+          <div id="playerAvatar" style="margin-bottom: 15px;"></div>
+        
+        
+          <table class="d-flex justify-content-center">
+              <tr id="energi">
+              <td colspan="2" href="style.css" id="word">Status: Idle</td>
+              <tr id="desc"></div>
+                              <td id="status"></td>
+                              <td id="status"></td>
+                      <tr>
+                              <td>Makan</td>
+                              <td><progress id="makan" value="50" max="100"></progress></td>
+                      </tr>
+                      <tr>
+                              <td>Belajar</td>
+                              <td><progress id="belajar" value="0" max="100"></progress></td>
+                      </tr> 
+                      <tr>
+                              <td>Main</td>
+                              <td><progress id="main" value="50" max="100"></progress></td>
+                      </tr>
+                      <tr>
+                              <td>Tidur</td>
+                              <td><progress id="tidur" value="50" max="100"></progress></td>
+              </tr>
+              </table>
+              <div class="d-flex justify-content-center">
+                <td><button type="increase"id="makanButton"href=style.css id="button">Makan</button></td>
+                <td><button type="increase"id="belajarButton"href=style.css id="button">Belajar</button></td>
+                <td><button type="increase"id="mainButton"href=style.css id="button">Main</button></td>
+                <td><button type="increase"id="tidurButton"href=style.css id="button">Tidur</button></td>
+              </div>
+      </div>
+		</div>
+      <style>
+        p12
+        {
+          font-size:28px;
+          font-family:"MS Serif", "New York", serif;
+          color:#CCCCCC;
+        }
+        p
+        {
+          font-size:18px;
+          font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+          color:#262121;
+        }
+        tr
+        {
+          background-size: 50%;
+          }
+        .card 
+        {
+           max-width: 400px;
+           max-height: 900px;
+           color: #000000;
+           border-radius: 15px;
+           box-shadow: 0px 5px 8px;
+           top: -5px;
+         }
+        card2
+        {
+           border-radius: 15px;
+           box-shadow: 0px 4px 8px 0px;
+           max-width: 150px;
+           background-color: #000000;
+           margin: auto;
+           text-align: center;
+        }
+        clock 
+        {
+          background: red;
+          width: 150px;
+          padding: 10px;
+          text-align: center;
+          border-radius: 5px;
+        }
+        ampm 
+        {
+          font-family: "Comic Sans", cursive;
+          font-size: 30px;
+          color: white;
+          text-align:center;
+        }
+        
+        clock-time 
+        {
+          font-size: 48px;
+          font-family: "Comic Sans", cursive;
+          color: white;
+          text-align:center;
+        }
+        .play 
+        {
+          text-decoration: "Comic Sans";
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          border-radius: 15px;
+          background-color: #f4511e;
+          border: 5px;
+          color: #FFFFFF;
+          text-align: center;
+          padding: 15px 32px;
+          width: 95px;
+          height: 40px;
+          transition: all 0.5s;
+          cursor: pointer;
+          box-shadow: 0 3px #999;
+        }
+        .play span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+        }
+        .play span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+        }
+        .play:hover span {
+          padding-right: 25px;
+        }
+        .play:hover span:after {
+          opacity: 1;
+          right: 0;
+        }
+        .play:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+        }
+        button span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+        }
+        button span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: 30px;
+          transition: 0.5s;
+        }
+        button:hover span {
+          padding-right: 0px;
+        }
+        button:hover span:after {
+          opacity: 1;
+          right: 0px;
+        }
+        
+        buttonl span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+        }
+        buttonl span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          left: 0px;
+          transition: 0.5s;
+        }
+        buttonl:hover span {
+          padding-right: 0px;
+        }
+        buttonl:hover span:after {
+          opacity: 1;
+          left: 30;
+        }
+        Process 
+        {
+          width: 100%;
+          background-color: #ddd;
+        }
+        
+        Bar 
+        {
+          width: 0%;
+          height: 30px;
+          background-color: #4CAF50;
+          text-align: center;
+          line-height: 30px;
+          color: white;
+        }
+        
+        energi
+        {
+          text-align: center;
+          background-color: pink;
+        }
+        
+        status
+        {
+          background-color: lightgray;
+        }
+        body
+        {	background-color:darkseagreen; 
+          }
+        </style>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+          var AvatarNum = 1;
+          var semesterVal = 1;
+          var busy = 1;
+          var counter = 0;
+          var decMakan = 0;
+          var decMain = 0;
+          var decTidur = 0;
+          var checkBelajar = 0;
+          var allow = 1;
+          var date;
+          var hour;
+          var minute;
+          var avatarMakan = 1;
+          var avatarBelajar = 1;
+          var avatarMain = 1;
+          var avatarTidur = 1;
+          var validate = 0;
+
+            function addAvatarNum(){
+              AvatarNum++;
+              if(AvatarNum == 5)
+              {
+                AvatarNum = 1;
+              }
+            }
+            function minusAvatarNum(){
+              AvatarNum--;
+              if(AvatarNum == 0)
+              {
+                AvatarNum = 4;
+              }
+            }
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+
+	$("#character-2").hide();
+	function arrow() {
+		$("#character-1").toggle();
+		$("#character-2").toggle();
+	}
+            $(function() {
+            $('#page2')
+                .hide();
+            });
+
+            $("#play").click(function(){
+                decMakan = 1;
+                decMain = 1;
+                decTidur = 1;
+                checkBelajar = 0;
+                allow = 1;
+                date = new Date();
+                hour = date.getHours();
+                minute = date.getMinutes();
+                $("#page1").fadeOut();
+                $("#page2").fadeIn();
+                playerName = $("#name").val();
+                if(AvatarNum == 1)
+                {
+                  $('#playerAvatar').prepend($('<img>',{src:'avatars/avatar1.gif'}));
+                }
+                else if(AvatarNum == 2)
+                {
+                  $('#playerAvatar').prepend($('<img>',{src:'avatars/avatar2.gif'}));
+                  avatarMakan = 2;
+                }
+                else if(AvatarNum == 3)
+                {
+                  $('#playerAvatar').prepend($('<img>',{src:'avatars/avatar3.gif'}));
+                  avatarBelajar = 2;
+                }
+                else if(AvatarNum == 4)
+                {
+                  $('#playerAvatar').prepend($('<img>',{src:'avatars/avatar4.gif'}));
+                  avatarMakan = 2;
+                  avatarBelajar = 0.5;
+                  avatarMain = 2;
+                  avatarTidur = 2;
+                }
+            });
+
+            $("#makanButton").click(function(){
+              if(allow == 1)
+              {
+                if(AvatarNum == 1)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar1Makan.gif");
+                }
+                else if(AvatarNum == 2)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar2Makan.gif");
+                }
+                else if(AvatarNum == 3)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar3Makan.gif");
+                }
+                else if(AvatarNum == 4)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar4Makan.gif");
+                }
+                  allow = 0;
+                  decMakan = 0;
+                  busy = 2;
+                  $("#word").text("Status: Makan");
+                  var makanIncrement = window.setInterval(function(){
+                    document.getElementById("makan").value += 2 * avatarMakan;
+                    counter += 1;
+                    if(counter >= 10)
+                    {
+                      if(AvatarNum == 1)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar1.gif");
+                      }
+                      else if(AvatarNum == 2)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar2.gif");
+                      }
+                      else if(AvatarNum == 3)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar3.gif");
+                      }
+                      else if(AvatarNum == 4)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar4.gif");
+                      }
+                      counter = 0;
+                      busy = 1;
+                      decMakan = 1;
+                      allow = 1;
+                      $("#word").text("Status: Idle");
+                      clearInterval(makanIncrement);
+                    }
+                  }, 500);
+              }
+            });
+            $("#belajarButton").click(function(){
+              if(allow == 1)
+              {
+                if(AvatarNum == 1)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar1Belajar.gif");
+                }
+                else if(AvatarNum == 2)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar2Belajar.gif");
+                }
+                else if(AvatarNum == 3)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar3Belajar.gif");
+                }
+                else if(AvatarNum == 4)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar4Belajar.gif");
+                }
+                  allow = 0;
+                  busy = 2 + (0.1 * semesterVal);
+                  $("#word").text("Status: Belajar");
+                  var belajarIncrement = window.setInterval(function(){
+                    if(AvatarNum == 2)
+                    {
+                      document.getElementById("belajar").value += (2 - (0.05 * semesterVal)) + (document.getElementById("belajar").value / 50);
+                    }
+                    else
+                    {
+                      document.getElementById("belajar").value += (2 * avatarBelajar) - (0.05 * semesterVal);
+                    }
+                    counter += 1;
+                    checkBelajar = 0;
+                    if(counter >= 10)
+                    {
+                      if(AvatarNum == 1)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar1.gif");
+                      }
+                      else if(AvatarNum == 2)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar2.gif");
+                      }
+                      else if(AvatarNum == 3)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar3.gif");
+                      }
+                      else if(AvatarNum == 4)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar4.gif");
+                      }
+                      counter = 0;
+                      busy = 1;
+                      allow = 1;
+                      $("#word").text("Status: Idle");
+                      clearInterval(belajarIncrement);
+                    }
+                    if(document.getElementById("belajar").value >= 100)
+                    {
+                      if(AvatarNum == 1)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar1.gif");
+                      }
+                      else if(AvatarNum == 2)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar2.gif");
+                      }
+                      else if(AvatarNum == 3)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar3.gif");
+                      }
+                      else if(AvatarNum == 4)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar4.gif");
+                      }
+                      counter = 0;
+                      busy = 1;
+                      allow = 1;
+                      document.getElementById("belajar").value = 0;
+                      semesterVal++;
+                      $("#word").text("Status: Idle");
+                      $("#semester").text("Semester " + semesterVal);
+                      clearInterval(belajarIncrement);
+                    }
+                  }, 500);
+              }
+            });
+            $("#mainButton").click(function(){
+              if(allow == 1)
+              {
+                if(AvatarNum == 1)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar1Main.gif");
+                }
+                else if(AvatarNum == 2)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar2Main.gif");
+                }
+                else if(AvatarNum == 3)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar3Main.gif");
+                }
+                else if(AvatarNum == 4)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar4Main.gif");
+                }
+                  allow = 0;
+                  decMain = 0;
+                  busy = 2;
+                  $("#word").text("Status: Main");
+                  var mainIncrement = window.setInterval(function(){
+                    document.getElementById("main").value += 2 * avatarMain;
+                    counter += 1;
+                    if(counter >= 10)
+                    {
+                      if(AvatarNum == 1)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar1.gif");
+                      }
+                      else if(AvatarNum == 2)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar2.gif");
+                      }
+                      else if(AvatarNum == 3)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar3.gif");
+                      }
+                      else if(AvatarNum == 4)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar4.gif");
+                      }
+                      counter = 0;
+                      busy = 1;
+                      allow = 1;
+                      decMain = 1;
+                      $("#word").text("Status: Idle");
+                      clearInterval(mainIncrement);
+                    }
+                  }, 500);
+              }
+            });
+            $("#tidurButton").click(function(){
+              if(allow == 1)
+              {
+                if(AvatarNum == 1)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar1Tidur.gif");
+                }
+                else if(AvatarNum == 2)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar2Tidur.gif");
+                }
+                else if(AvatarNum == 3)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar3Tidur.gif");
+                }
+                else if(AvatarNum == 4)
+                {
+                  $("#playerAvatar img").attr("src", "avatars/avatar4Tidur.gif");
+                }
+                  allow = 0;
+                  decTidur = 0;
+                  busy = 2;
+                  $("#word").text("Status: Tidur");
+                  var tidurIncrement = window.setInterval(function(){
+                    document.getElementById("tidur").value += 2 * avatarTidur;
+                    counter += 1;
+                    if(counter >= 10)
+                    {
+                      if(AvatarNum == 1)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar1.gif");
+                      }
+                      else if(AvatarNum == 2)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar2.gif");
+                      }
+                      else if(AvatarNum == 3)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar3.gif");
+                      }
+                      else if(AvatarNum == 4)
+                      {
+                        $("#playerAvatar img").attr("src", "avatars/avatar4.gif");
+                      }
+                      counter = 0;
+                      busy = 1;
+                      allow = 1;
+                      decTidur = 1;
+                      $("#word").text("Status: Idle");
+                      clearInterval(tidurIncrement);
+                    }
+                  }, 500);
+              }
+            });
+            
+            var decrementMakan = window.setInterval(function(){
+              if(decMakan == 1)
+              {
+                if(AvatarNum == 2)
+                {
+                  document.getElementById("makan").value -= 1*busy + (0.1 * semesterVal);
+                }
+                else
+                {
+                  document.getElementById("makan").value -= 0.3*busy + (0.05 * semesterVal);
+                }
+              }
+            }, 1000);
+            var decrementMain = window.setInterval(function(){
+              if(decMain == 1)
+              {
+                document.getElementById("main").value -= 0.3*busy + (0.05 * semesterVal);
+              }
+            }, 1000);
+            var decrementTidur = window.setInterval(function(){
+              if(decTidur == 1)
+              {
+                if(AvatarNum == 3)
+                {
+                  document.getElementById("tidur").value -= 0.7*busy + (0.05 * semesterVal);
+                }
+                else
+                {
+                  document.getElementById("tidur").value -= 0.3*busy + (0.05 * semesterVal);
+                }
+              }
+            }, 1000);
+            var IncrementCheckBelajar = window.setInterval(function(){
+              checkBelajar++;
+            }, 1000);
+
+
+            var checkStatus = window.setInterval(function(){
+
+              if(hour > 5 && hour < 12)
+              {
+                $("#player").text("Good Morning " + playerName);
+                $("body").css("background-color", "rgb(130, 200, 130)");
+              }
+              else if(hour >= 12 && hour < 15)
+              {
+                $("#player").text("Good Afternoon " + playerName);
+                $("body").css("background-color", "darkseagreen");
+              }
+              else if(hour >= 15 && hour < 18)
+              {
+                $("#player").text("Good Evening " + playerName);
+                $("body").css("background-color", "rgb(110, 170, 110)");
+              }
+              else if(hour >= 18 && hour <= 23)
+              {
+                $("#player").text("Good Night " + playerName);
+                $("body").css("background-color", "rgb(65, 105, 65)");
+              }
+              else if(hour >= 0 && hour < 6)
+              {
+                $("#player").text("Good Night " + playerName);
+                $("body").css("background-color", "rgb(65, 105, 65)");
+              }
+
+                if(document.getElementById("makan").value <= 20)
+                {
+                  $("#statusMakan").text("Lapar! ");
+                  if(document.getElementById("makan").value <= 0)
+                  {
+                    $("#statusMakan").text("Mati Kelaparan! ");
+                    decMakan = 0;
+                    decMain = 0;
+                    decTidur = 0;
+                    allow = 0;
+                    $("#word").text("Status: Game Over!");
+                    clearInterval(IncrementCheckBelajar);
+                    clearInterval(time);
+                  }
+                }
+                else
+                {
+                  $("#statusMakan").text(" ");
+                }
+                if(document.getElementById("main").value <= 20)
+                {
+                  $("#statusMain").text("Stress! ");
+                  if(document.getElementById("main").value <= 0)
+                  {
+                    $("#statusMain").text("Mati Stress! ");
+                    decMakan = 0;
+                    decMain = 0;
+                    decTidur = 0;
+                    allow = 0;
+                    $("#word").text("Status: Game Over!");
+                    clearInterval(IncrementCheckBelajar);
+                    clearInterval(time);
+                  }
+                }
+                else
+                {
+                  $("#statusMain").text(" ");
+                }
+                if(document.getElementById("tidur").value <= 20)
+                {
+                  $("#statusTidur").text("Ngantuk! ");
+                  if(document.getElementById("tidur").value <= 0)
+                  {
+                    $("#statusTidur").text("Mati Ngantuk! ");
+                    decMakan = 0;
+                    decMain = 0;
+                    decTidur = 0;
+                    allow = 0;
+                    $("#word").text("Status: Game Over!");
+                    clearInterval(IncrementCheckBelajar);
+                    clearInterval(time);
+                  }
+                }
+                else
+                {
+                  $("#statusTidur").text(" ");
+                }
+                if(checkBelajar >= 30)
+                {
+                  $("#statusBelajar").text("Bentar Lagi Drop Out! ");
+                  if(checkBelajar >= 45)
+                  {
+                    $("#statusBelajar").text("Telah Drop Out dari UMN! ");
+                    decMakan = 0;
+                    decMain = 0;
+                    decTidur = 0;
+                    allow = 0;
+                    $("#word").text("Status: Game Over!");
+                    clearInterval(IncrementCheckBelajar);
+                    clearInterval(time);
+                  }
+                }
+                else
+                {
+                  $("#statusBelajar").text(" ");
+                }
+                if(semesterVal > 8)
+                {
+                  decMakan = 0;
+                  decMain = 0;
+                  decTidur = 0;
+                  allow = 0;
+                  $("#semester").text("Semester 8");
+                  $("#word").text("Status: Lulus!");
+                }
+            }, 100);
+
+            var time = window.setInterval(function(){
+              if(minute < 10)
+              {
+                $("#clock-time").text(hour + ":0" + minute);
+              }
+              else
+              {
+                $("#clock-time").text(hour + ":" + minute);
+              }
+              if(hour < 10)
+              {
+                $("#clock-time").text('0' + hour + ":" + minute);
+                if(minute < 10)
+                {
+                  $("#clock-time").text("0" + hour + ":0"+ minute);
+                }
+              }
+              minute += 1;
+              if(minute >= 60)
+              {
+                minute = 0;
+                hour +=1;
+                if(hour >= 23)
+                {
+                  hour = 0;
+                }
+              }
+            }, 1000);
+
+            var timeExtra = window.setInterval(function(){
+              if(busy > 1)
+              {
+                if(minute < 10)
+                {
+                  $("#clock-time").text(hour + ":0" + minute);
+                }
+                else
+                {
+                  $("#clock-time").text(hour + ":" + minute);
+                }
+                if(hour < 10)
+                {
+                  $("#clock-time").text('0' + hour + ":" + minute);
+                  if(minute < 10)
+                  {
+                    $("#clock-time").text("0" + hour + ":0"+ minute);
+                  }
+                }
+                minute += 1;
+                if(minute >= 60)
+                {
+                  minute = 0;
+                  hour +=1;
+                  if(hour >= 23)
+                  {
+                    hour = 0;
+                  }
+                }
+              }
+            }, 50);
+
+        </script>
+
+      </body>
+</html>
